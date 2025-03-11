@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日常检查主题列表</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        .card {
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .tag {
+            border-radius: 12px;
+            padding: 2px 8px;
+            font-size: 12px;
+            background-color: #e6f7ff;
+            color: #1890ff;
+            margin-right: 6px;
+            margin-bottom: 6px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body class="p-4">
+    <div class="container mx-auto">
+        <!-- 头部搜索和操作区 -->
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold text-gray-800">日常检查主题管理</h1>
+            <div class="flex space-x-4">
+                <div class="relative">
+                    <input type="text" placeholder="搜索主题名称" class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                </div>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
+                    <i class="fas fa-plus mr-2"></i> 新增主题
+                </button>
+            </div>
+        </div>
+
+        <!-- 筛选条件 -->
+        <div class="bg-white p-4 rounded-lg shadow-sm mb-6">
+            <div class="flex flex-wrap items-center">
+                <span class="text-gray-600 mr-4">筛选：</span>
+                <div class="flex items-center mr-6">
+                    <span class="text-gray-600 mr-2">创建时间：</span>
+                    <select class="border border-gray-300 rounded-md px-3 py-1">
+                        <option>全部</option>
+                        <option>最近一周</option>
+                        <option>最近一月</option>
+                        <option>最近三月</option>
+                    </select>
+                </div>
+                <div class="flex items-center">
+                    <span class="text-gray-600 mr-2">标签：</span>
+                    <select class="border border-gray-300 rounded-md px-3 py-1">
+                        <option>全部标签</option>
+                        <option>消防安全</option>
+                        <option>建筑安全</option>
+                        <option>环境卫生</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- 主题列表 -->
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            主题名称
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            关联标签
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            指标数量
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            小区数量
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            创建时间
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            操作
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="text-sm font-medium text-gray-900">2023年第四季度消防安全检查</div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex flex-wrap">
+                                <span class="tag">消防安全</span>
+                                <span class="tag">安全隐患</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            12
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            8
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            2023-10-15 14:30
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                            <a href="#" class="text-blue-600 hover:text-blue-900 mr-3">编辑</a>
+                            <a href="#" class="text-red-600 hover:text-red-900">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="text-sm font-medium text-gray-900">2023年冬季供暖设施检查</div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex flex-wrap">
+                                <span class="tag">供暖设施</span>
+                                <span class="tag">设备维护</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            8
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            15
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            2023-11-01 09:15
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                            <a href="#" class="text-blue-600 hover:text-blue-900 mr-3">编辑</a>
+                            <a href="#" class="text-red-600 hover:text-red-900">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="text-sm font-medium text-gray-900">老旧小区环境卫生检查</div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex flex-wrap">
+                                <span class="tag">环境卫生</span>
+                                <span class="tag">老旧小区</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            10
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            6
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            2023-09-20 16:45
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                            <a href="#" class="text-blue-600 hover:text-blue-900 mr-3">编辑</a>
+                            <a href="#" class="text-red-600 hover:text-red-900">删除</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- 分页 -->
+            <div class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+                <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                    <div>
+                        <p class="text-sm text-gray-700">
+                            显示 <span class="font-medium">1</span> 到 <span class="font-medium">3</span> 条，共 <span class="font-medium">12</span> 条记录
+                        </p>
+                    </div>
+                    <div>
+                        <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                            <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-blue-50 text-sm font-medium text-blue-600 hover:bg-blue-100">
+                                1
+                            </a>
+                            <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                                2
+                            </a>
+                            <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                                3
+                            </a>
+                            <a href="#" class="relative inline-flex items-center px-2 py-
