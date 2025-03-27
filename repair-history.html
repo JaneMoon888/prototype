@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>历史报修记录</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            max-width: 390px;
+            margin: 0 auto;
+            background-color: #f5f5f5;
+            height: 100vh;
+        }
+        .phone-container {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 40px;
+            position: relative;
+            background-color: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .status-bar {
+            height: 44px;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #000;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .tab-active {
+            color: #1E88E5;
+            border-bottom: 2px solid #1E88E5;
+        }
+        .bottom-nav {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 83px;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-top: 1px solid #f0f0f0;
+            padding-bottom: 20px;
+        }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #8e8e93;
+        }
+        .nav-item.active {
+            color: #1E88E5;
+        }
+        .nav-text {
+            font-size: 12px;
+            margin-top: 4px;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-container">
+        <!-- 状态栏 -->
+        <div class="status-bar">
+            <div>9:41</div>
+            <div class="flex space-x-2">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+        
+        <!-- 标题栏 -->
+        <div class="bg-white px-4 py-3 flex items-center justify-between">
+            <h1 class="text-xl font-semibold">历史报修记录</h1>
+            <button class="text-blue-500">
+                <i class="fas fa-ellipsis-h"></i>
+            </button>
+        </div>
+        
+        <!-- 内容区域 -->
+        <div class="p-4 bg-gray-100 h-full overflow-auto pb-24">
+            <!-- 年份选择 -->
+            <div class="bg-white rounded-lg mb-4 p-3 flex justify-between items-center">
+                <div class="font-medium">2023年</div>
+                <div class="flex items-center">
+                    <button class="px-3 py-1 text-sm text-blue-500 border border-blue-500 rounded-full mr-2">
+                        其他年份
+                    </button>
+                    <i class="fas fa-chevron-down text-gray-400"></i>
+                </div>
+            </div>
+            
+            <!-- 月份选择 -->
+            <div class="flex overflow-x-auto py-2 mb-4 no-scrollbar">
+                <div class="flex-shrink-0 px-4 py-2 bg-blue-500 text-white rounded-full mr-2">全部</div>
+                <div class="flex-shrink-0 px-4 py-2 bg-white rounded-full mr-2">1月</div>
+                <div class="flex-shrink-0 px-4 py-2 bg-white rounded-full mr-2">2月</div>
+                <div class="flex-shrink-0 px-4 py-2 bg-white rounded-full mr-2">3月</div>
+                <div class="flex-shrink-0 px-4 py-2 bg-white rounded-full mr-2">4月</div>
+                <div class="flex-shrink-0 px-4 py-2 bg-white rounded-full mr-2">5月</div>
+                <div class="flex-shrink-0 px-4 py-2 bg-white rounded-full mr-2">6月</div>
+                <div class="flex-shrink-0 px-4 py-2 bg-white rounded-full mr-2">7月</div>
+            </div>
+            
+            <!-- 状态标签页 -->
+            <div class="bg-white rounded-lg mb-4">
+                <div class="flex border-b">
+                    <div class="w-1/3 py-3 text-center tab-active font-medium">维修中</div>
+                    <div class="w-1/3 py-3 text-center text-gray-500 font-medium">维修完成</div>
+                    <div class="w-1/3 py-3 text-center text-gray-500 font-medium">评价完成</div>
+                </div>
+            </div>
+            
+            <!-- 报修列表 -->
+            <div class="space-y-4">
+                <!-- 报修项目1 - 超时标记 -->
+                <div class="bg-white rounded-lg p-4 border-l-4 border-red-500">
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="font-semibold">工单编号：RP20230001</div>
+                        <div class="text-orange-500 text-sm">维修中</div>
+                    </div>
+                    <div class="text-gray-600 mb-2">
+                        <i class="fas fa-map-marker-alt mr-2 text-gray-400"></i>
+                        A栋3单元502室
+                    </div>
+                    <div class="text-gray-600 mb-2">
+                        <i class="fas fa-user mr-2 text-gray-400"></i>
+                        张先生
+                    </div>
+                    <div class="text-gray-600 mb-3">
+                        <i class="fas fa-tools mr-2 text-gray-400"></i>
+                        水管漏水，厨房地面积水
+                    </div>
+                    <div class="flex justify-between text-sm text-gray-500">
+                        <div>报修日期：2023-07-15 10:30</div>
+                        <div>到达时间：2023-07-15 11:15</div>
+                    </div>
+                    <div class="mt-2 text-xs text-red-500">
+                        <i class="fas fa-exclamation-circle mr-1"></i>
+                        到达时间超过30分钟
+                    </div>
+                    <div class="mt-3 pt-3 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <div class="w-1/4 h-1 bg-blue-500 rounded-full"></div>
+                            <div class="w-3/4 h-1 bg-gray-200 rounded-full"></div>
+                        </div>
+                        <div class="flex justify-between mt-2 text-xs">
+                            <div class="text-blue-500">接单</div>
+                            <div class="text-gray-400">维修完成</div>
+                            <div class="text-gray-400">评价完成</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 报修项目2 - 正常时间 -->
+                <div class="bg-white rounded-lg p-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="font-semibold">工单编号：RP20230002</div>
+                        <div class="text-orange-500 text-sm">维修中</div>
+                    </div>
+                    <div class="text-gray-600 mb-2">
+                        <i class="fas fa-map-marker-alt mr-2 text-gray-400"></i>
+                        B栋1单元201室
+                    </div>
+                    <div class="text-gray-600 mb-2">
+                        <i class="fas fa-user mr-2 text-gray-400"></i>
+                        李女士
+                    </div>
+                    <div class="text-gray-600 mb-3">
+                        <i class="fas fa-tools mr-2 text-gray-400"></i>
+                        卫生间门锁损坏，无法正常关闭
+                    </div>
+                    <div class="flex justify-between text-sm text-gray-500">
+                        <div>报修日期：2023-07-14 15:45</div>
+                        <div>到达时间：2023-07-14 16:05</div>
+                    </div>
+                    <div class="mt-3 pt-3 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <div class="w-1/4 h-1 bg-blue-500 rounded-full"></div>
+                            <div class="w-3/4 h-1 bg-gray-200 rounded-full"></div>
+                        </div>
+                        <div class="flex justify-between mt-2 text-xs">
+                            <div class="text-blue-500">接单</div>
+                            <div class="text-gray-400">维修完成</div>
+                            <div class="text-gray-400">评价完成</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 报修项目3 -->
+                <div class="bg-white rounded-lg p-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <div class="font-semibold">工单编号：RP20230003</div>
+                        <div class="text-orange-500 text-sm">维修中</div>
+                    </div>
+                    <div class="text-gray-600 mb-2">
+                        <i class="fas fa-map-marker-alt mr-2 text-gray-400"></i>
+                        C栋2单元305室
+                    </div>
+                    <div class="text-gray-600 mb-2">
+                        <i class="fas fa-user mr-2 text-gray-400"></i>
+                        王先生
+                    </div>
+                    <div class="text-gray-600 mb-3">
+                        <i class="fas fa-tools mr-2 text-gray-400"></i>
+                        空调不制冷，需要检修
+                    </div>
+                    <div class="flex justify-between text-sm text-gray-500">
+                        <div>报修日期：2023-07-13</div>
+                        <div>完成期限：2023-07-14</div>
+                    </div>
+                    <div class="mt-3 pt-3 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <div class="w-1/4 h-1 bg-blue-500 rounded-full"></div>
+                            <div class="w-3/4 h-1 bg-gray-200 rounded-full"></div>
+                        </div>
+                        <div class="flex justify-between mt-2 text-xs">
+                            <div class="text-blue-500">接单</div>
+                            <div class="text-gray-400">维修完成</div>
+                            <div class="text-gray-400">评价完成</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部导航栏 -->
+        <div class="bottom-nav">
+            <div class="nav-item">
+                <i class="fas fa-home text-xl"></i>
+                <span class="nav-text">首页</span>
+            </div>
+            <div class="nav-item active">
+                <i class="fas fa-tools text-xl"></i>
+                <span class="nav-text">报修</span>
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-clipboard-list text-xl"></i>
+                <span class="nav-text">任务</span>
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-user text-xl"></i>
+                <span class="nav-text">我的</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

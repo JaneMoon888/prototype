@@ -3,64 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>街镇房办日常检查主题管理系统</title>
+    <title>报修小程序原型</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            background-color: #f0f2f5;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
         }
         .prototype-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(1000px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
             gap: 30px;
-            padding: 20px;
         }
-        .prototype-frame {
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        .prototype-item {
             background-color: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         .prototype-title {
-            padding: 10px 15px;
+            padding: 12px 16px;
             background-color: #f8f9fa;
-            border-bottom: 1px solid #eee;
-            font-weight: bold;
-            color: #333;
+            border-bottom: 1px solid #e9ecef;
+            font-weight: 600;
         }
         iframe {
-            width: 100%;
             border: none;
+            width: 100%;
             height: 700px;
         }
     </style>
 </head>
 <body>
-    <header class="bg-blue-600 text-white p-4 shadow-md">
-        <h1 class="text-2xl font-bold text-center">街镇房办日常检查主题管理系统 - 原型展示</h1>
-    </header>
-
-    <div class="prototype-container">
-        <div class="prototype-frame">
-            <div class="prototype-title">日常检查主题列表</div>
-            <iframe src="theme-list.html"></iframe>
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-bold mb-8 text-center">报修小程序原型设计</h1>
+        
+        <div class="prototype-container">
+            <!-- 报修管理主页面 -->
+            <div class="prototype-item">
+                <div class="prototype-title">报修管理主页面</div>
+                <iframe src="repair-main.html"></iframe>
+            </div>
+            
+            <!-- 报修录入表单 -->
+            <div class="prototype-item">
+                <div class="prototype-title">报修录入表单</div>
+                <iframe src="repair-form.html"></iframe>
+            </div>
+            
+            <!-- 维修工扫码接单 -->
+            <div class="prototype-item">
+                <div class="prototype-title">维修工扫码接单</div>
+                <iframe src="repair-scan.html"></iframe>
+            </div>
+            
+            <!-- 到达现场确认 -->
+            <div class="prototype-item">
+                <div class="prototype-title">到达现场确认</div>
+                <iframe src="repair-arrival.html"></iframe>
+            </div>
+            
+            <!-- 维修完成确认 -->
+            <div class="prototype-item">
+                <div class="prototype-title">维修完成确认</div>
+                <iframe src="repair-confirm.html"></iframe>
+            </div>
+            
+            <!-- 历史报修记录 -->
+            <div class="prototype-item">
+                <div class="prototype-title">历史报修记录</div>
+                <iframe src="repair-history.html"></iframe>
+            </div>
         </div>
         
-        <div class="prototype-frame">
-            <div class="prototype-title">新增日常检查主题</div>
-            <iframe src="theme-add.html"></iframe>
-        </div>
-        
-        <div class="prototype-frame">
-            <div class="prototype-title">选择标签</div>
-            <iframe src="tag-select.html"></iframe>
-        </div>
-        
-        <div class="prototype-frame">
-            <div class="prototype-title">选择指标和小区</div>
-            <iframe src="indicators-communities.html"></iframe>
+        <div class="mt-10 text-center text-gray-600">
+            <p>© 2023 报修小程序原型设计</p>
         </div>
     </div>
 </body>
